@@ -1,0 +1,16 @@
+{
+    "name": "jour/composer",
+    "autoload": {
+        "psr-4": {
+            "Jour\\Composer\\": "src/",
+            "Src\\entite\\": "src/entite/",
+            "Src\\repository\\": "src/repository/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Abdoulaye"
+        }
+    ],
+    "require": {}
+}

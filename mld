@@ -1,0 +1,77 @@
+PERSONNE
+
+id (PK)
+nom
+prenom
+type ('client' ou 'vendeur')
+telephone (utilisé si type = 'client')
+login (utilisé si type = 'vendeur')
+password ( utilisé si type = 'vendeur')
+
+
+PRODUIT
+
+id (PK)
+libelle
+qteStock
+prix
+
+
+COMMANDE
+
+id (PK)
+numero
+date
+montant
+client_id (FK → personne.id, type = 'client')
+vendeur_id (FK → personne.id, type = 'vendeur')
+
+
+
+PRODUIT_COMMANDE
+
+commande_id (FK → commande.id)
+produit_id (FK → produit.id)
+qteCommande
+montant
+(PK = commande_id, produit_id)
+
+
+FACTURE
+
+id (PK)
+numero
+date
+montant
+statut
+montantRestant
+commande_id (FK → commande.id)
+
+
+PAIEMENT
+
+id (PK)
+numero
+date
+montantVerse
+facture_id (FK → facture.id)
+vendeur_id (FK → personne.id, type = 'vendeur')
+
+
+Contraintes et relations :
+
+Une personne peut être un client ou un vendeur (champ type).
+Une commande appartient à un client et à un vendeur.
+Une commande contient plusieurs produits via produit_commande.
+Une facture est liée à une commande.
+Une facture peut avoir plusieurs paiements.
+Un paiement est enregistré par un vendeur.
+Résumé des clés étrangères :
+
+commande.client_id → personne.id (type = 'client')
+commande.vendeur_id → personne.id (type = 'vendeur')
+produit_commande.commande_id → commande.id
+produit_commande.produit_id → produit.id
+facture.commande_id → commande.id
+paiement.facture_id → facture.id
+paiement.vendeur_id → personne.id (type = 'vendeur')
