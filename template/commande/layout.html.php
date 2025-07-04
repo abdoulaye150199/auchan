@@ -10,13 +10,16 @@
     <!-- Navbar -->
     <nav class="w-full bg-[#151f11] px-8 py-3 flex items-center justify-between border-b border-[#263a1d]">
         <div class="flex items-center space-x-3">
-            <span class="text-white text-xl font-semibold">Abdoulaye</span>
+            <span class="text-white text-xl font-semibold">
+                <?= htmlspecialchars($_SESSION['vendeur']['nom'] ?? 'Vendeur') ?>
+            </span>
         </div>
         <div class="flex items-center space-x-8">
-            <a href="/" class="nav-item text-white font-semibold">List Commandes</a>
-            <a href="/commande" class="nav-item">Nouvelle commande</a>
-            <a href="#" class="nav-item">Clients</a>
-            <a href="#" class="nav-item">Produits</a>
+            <a href="/" class="nav-item text-white font-semibold hover:text-green-400 transition-colors">Liste Commandes</a>
+            <a href="/commande" class="nav-item hover:text-green-400 transition-colors">Nouvelle commande</a>
+            <a href="#" class="nav-item hover:text-green-400 transition-colors">Clients</a>
+            <a href="#" class="nav-item hover:text-green-400 transition-colors">Produits</a>
+            <a href="/logout" class="nav-item hover:text-red-400 transition-colors">Déconnexion</a>
             <div class="ml-6">
                 <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#232d1a] text-gray-300">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
