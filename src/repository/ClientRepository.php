@@ -3,14 +3,17 @@ namespace Src\repository;
 
 use PDO;
 
-class ClientRepository {
-    private $pdo;
-    public function __construct() {
-        $this->pdo = new PDO('mysql:host=localhost;dbname=Gestion_commerciale', 'laye', 'Laye1234!');
-        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+class ClientRepository extends Repository
+{
+    public function __construct()
+    {
+        parent::__construct();
     }
-    public function findAll() {
-        $stmt = $this->pdo->query("SELECT * FROM personne WHERE type='client'");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // On ne redéfinit PAS findAll(string $table)
+    // On crée une méthode spécifique pour les clients :
+    public function findAllClients(): array
+    {
+        return $this->findAll('personne');
     }
 }

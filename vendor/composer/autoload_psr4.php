@@ -8,5 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'Src\\repository\\' => array($baseDir . '/src/repository'),
     'Src\\entite\\' => array($baseDir . '/src/entite'),
+    'Src\\controller\\' => array($baseDir . '/src/controller'),
+    'Src\\Services\\' => array($baseDir . '/src/services'),
+    'Src\\Config\\' => array($baseDir . '/config/core'),
     'Jour\\Composer\\' => array($baseDir . '/src'),
 );
